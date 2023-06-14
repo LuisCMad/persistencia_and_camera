@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
@@ -35,6 +36,7 @@ public class AddApplicationActivity extends AppCompatActivity {
 
     private ImageView imageView;
 
+    private MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +48,7 @@ public class AddApplicationActivity extends AppCompatActivity {
         editText = findViewById(R.id.editTextName);
         takePhoto = findViewById(R.id.buttonTakePhoto);
         imageView = findViewById(R.id.imageViewPhoto);
+         mediaPlayer = MediaPlayer.create(this, R.raw.ok);
         takePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +111,7 @@ public class AddApplicationActivity extends AppCompatActivity {
         long newRowId = db.insert(ApplicationsContract.TABLE_NAME, null, values);
         db.close();
         Toast.makeText(this, "Insertado correctamente", Toast.LENGTH_SHORT).show();
+        mediaPlayer.start();
         //Navigate application list
         Intent intent = new Intent(this, ApplicationsActivity.class);
         startActivity(intent);
