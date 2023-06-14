@@ -1,0 +1,9 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#009688" /> <!-- Color de fondo -->
+        </shape>
+    </item>
+    <item android:drawable="@drawable/textview_border"> <!-- Reemplaza "textview_border" con tu archivo de borde personalizado, si es necesario -->
+    </item>
+</layer-list>
